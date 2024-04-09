@@ -105,8 +105,12 @@ todoMenor :: (Int, Int) -> (Int, Int) -> Bool
 todoMenor x y = (fst x) < (fst y) && (snd x) < (snd y)
 
 --c)
+distanciaPuntos :: (Float, Float) -> (Float, Float)  -> Float
+distanciaPuntos x y = sqrt ( ((fst x) - fst (y))  ^ 2 + ((snd x) - snd (y))  ^ 2)
 
 --d)
+
+
 
 --e)
 
