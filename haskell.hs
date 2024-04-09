@@ -56,6 +56,12 @@ ambosSon0 x y = False
 
 --f)
 
+mismoIntervalo :: Float -> Float -> Bool
+mismoIntervalo x y | x <= 3 && y <= 3 = True
+                   | x <= 7 && y <= 7 && x > 3 && y > 3 = True
+                   | x > 7 && y > 7 = True
+                   | otherwise = False
+
 --g)
 
 --h)
