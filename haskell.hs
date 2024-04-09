@@ -87,7 +87,10 @@ digitoDecenas :: Int -> Int
 digitoDecenas x = mod (div x 10) 10  
 
 
+--3)
 
+estanRelacionados :: Integer -> Integer -> Bool
+estanRelacionados x y = mod x y == 0
 
 
 
