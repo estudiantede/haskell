@@ -73,6 +73,9 @@ sumaDistintos x y z | x == y && x == z = 0
 
 --h)
 
+esMultiploDe :: Int -> Int -> Bool
+esMultiploDe x y = mod x y == 0
+
 --i)
 
 --j)
