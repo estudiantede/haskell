@@ -33,7 +33,13 @@ absoluto x | x >= 0 = x
 maximoabsoluto :: Int -> Int -> Int
 maximoabsoluto x y | absoluto x > absoluto y = absoluto x
                    | otherwise = absoluto y
+
 --c)
+
+maximo3 :: Int -> Int -> Int -> Int
+maximo3 x y z | x >= y && x >= z = x
+              | y >= z = y
+              | otherwise = z
 
 --d)
 
