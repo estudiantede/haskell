@@ -101,6 +101,8 @@ prodInterno :: (Int, Int) -> (Int, Int) -> Int
 prodInterno x y = (fst x) * (fst y) + (snd x) * (snd y)
 
 --b)
+todoMenor :: (Int, Int) -> (Int, Int) -> Bool
+todoMenor x y = (fst x) < (fst y) && (snd x) < (snd y)
 
 --c)
 
