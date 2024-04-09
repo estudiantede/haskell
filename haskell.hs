@@ -109,10 +109,14 @@ distanciaPuntos :: (Float, Float) -> (Float, Float)  -> Float
 distanciaPuntos x y = sqrt ( ((fst x) - fst (y))  ^ 2 + ((snd x) - snd (y))  ^ 2)
 
 --d)
+thrd:: (Int,Int,Int) -> Int
+thrd (_,_,c) = c
 
-
+sumaTerna :: (Int, Int, Int) -> Int
+sumaTerna (x, y, z) = x + y + z
 
 --e)
+sumarSoloMultiplos ::
 
 --f)
 
