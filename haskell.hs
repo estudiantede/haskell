@@ -125,7 +125,13 @@ sumarSoloMultiplos(x, y, z) a | ((mod x a) == 0) && ((mod y a) == 0) && ((mod z 
                               | ((mod z a) == 0) = z
                               | ((mod y a) == 0) = y
                               | otherwise = 0
+
 --f)
+posPrimerPar :: (Int, Int, Int) -> Int
+posPrimerPar (x, y, z) | (mod x 2) == 0 = 0
+                       | (mod y 2) == 0 = 0
+                       | (mod z 2) == 0 = 0
+                       | (mod x 2) == 1 && (mod y 2) /= 0 && (mod z 2) /= 0 = 4
 
 --g)
 
