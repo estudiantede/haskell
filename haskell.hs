@@ -43,6 +43,11 @@ maximo3 x y z | x >= y && x >= z = x
 
 --d)
 
+algunoEs0 :: Float -> Float -> Bool
+algunoEs0 x 0 = True
+algunoEs0 0 y = True
+algunoEs0 x y = False
+
 --e)
 
 --f)
