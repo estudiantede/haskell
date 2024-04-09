@@ -78,7 +78,13 @@ esMultiploDe x y = mod x y == 0
 
 --i)
 
+digitoUnidades :: Int -> Int 
+digitoUnidades x = mod x 10
+
 --j)
+
+digitoDecenas :: Int -> Int
+digitoDecenas x = mod (div x 10) 10  
 
 
 
