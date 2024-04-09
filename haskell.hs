@@ -94,9 +94,25 @@ estanRelacionados x y = mod x y == 0
 
 
 
+--4) 
 
+--a)
+prodInterno :: (Int, Int) -> (Int, Int) -> Int
+prodInterno x y = (fst x) * (fst y) + (snd x) * (snd y)
 
+--b)
 
+--c)
+
+--d)
+
+--e)
+
+--f)
+
+--g)
+
+--h)
 
 
 
