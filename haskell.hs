@@ -50,6 +50,10 @@ algunoEs0 x y = False
 
 --e)
 
+ambosSon0 :: Float -> Float -> Bool
+ambosSon0 0 0 = True
+ambosSon0 x y = False
+
 --f)
 
 --g)
