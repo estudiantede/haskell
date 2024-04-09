@@ -28,9 +28,11 @@ absoluto :: Int -> Int
 absoluto x | x >= 0 = x
            | x < 0 = (-x)
 
-
 --b)
 
+maximoabsoluto :: Int -> Int -> Int
+maximoabsoluto x y | absoluto x > absoluto y = absoluto x
+                   | otherwise = absoluto y
 --c)
 
 --d)
