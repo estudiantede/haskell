@@ -116,8 +116,15 @@ sumaTerna :: (Int, Int, Int) -> Int
 sumaTerna (x, y, z) = x + y + z
 
 --e)
-sumarSoloMultiplos ::
-
+sumarSoloMultiplos :: (Int, Int, Int) -> Int -> Int
+sumarSoloMultiplos(x, y, z) a | ((mod x a) == 0) && ((mod y a) == 0) && ((mod z a) == 0) = x + y + z
+                              | ((mod x a) == 0) && ((mod y a)) == 0 = x + y
+                              | ((mod x a) == 0) && ((mod z a)) == 0 = x + z
+                              | ((mod x a) == 0) = x
+                              | ((mod y a) == 0) && (mod z a) == 0 = y + z
+                              | ((mod z a) == 0) = z
+                              | ((mod y a) == 0) = y
+                              | otherwise = 0
 --f)
 
 --g)
