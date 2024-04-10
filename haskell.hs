@@ -119,3 +119,52 @@ digitoDecenas x = mod (div x 10) 10
 --i)
 
 --j)
+
+
+
+
+{- 
+
+problema todoMenos (t1, t2: R × R) : Bool {
+    requiere: {true}
+    asegura: {res = True <--> la primer coordenada de t1 es menor a la 1ra de t2 Y la segunda coordenada de t1 es menor que la segunda coordenada de t2}
+}
+
+problema crearPar (x, y) : t {
+    requiere: {true}
+    asegura: {res devuelve una tupla en donde el primer elemento sea x y su segundo elemento sea y, sin importar su tipo}
+}
+
+Eq t :: t -> t 
+
+-}
+
+crearPar :: t -> t -> (t, t)
+crearPar x y = (x, y)
+
+--todosMenores :: (Int, Int, Int) -> Bool
+--todosMenores (a, b, c) = 2
+
+f :: Int -> Int
+f x | x <= 7 = x ^ 2
+    | x > 7 = 2 * x - 1
+
+g :: Int -> Int 
+g x | mod x 2 == 0 = div x 2
+    | otherwise = 3 * x + 1
+
+bisiesto :: Int -> Bool
+bisiesto x | (mod x 4 /= 0) = False
+           | (mod x 100 == 0 && mod x 400 /= 0) = False
+           | otherwise = True
+
+distanciaManhattan :: (Float, Float, Float) -> (Float, Float, Float) -> Float
+distanciaManhattan (a, b, c) (x, y ,z) = abs (a - x) + abs (b - y) + abs (c - z)
+
+comparar :: Int -> Int -> Int
+comparar x y | sumaUltimosDosDigitos(x) < sumaUltimosDosDigitos(y) = 1
+             | sumaUltimosDosDigitos(x) = sumaUltimosDosDigitos(y) = 0
+             | otherwise = -1
+
+sumaUltimosDosDigitos :: Int -> Int
+sumaUltimosDosDigitos x = mod (abs x) 10 + mod (div (abs x) 10) 10 
