@@ -168,3 +168,47 @@ comparar x y | sumaUltimosDosDigitos(x) < sumaUltimosDosDigitos(y) = 1
 
 sumaUltimosDosDigitos :: Int -> Int
 sumaUltimosDosDigitos x = mod (abs x) 10 + mod (div (abs x) 10) 10 
+
+
+
+
+
+
+
+problema f1 (x: R) : Float {
+    requiere: {true}
+    asegura: {res devuelve 1 si x es 0. En caso contrario devuelve 0}
+}
+
+problema f2 (x: R) : R {
+    requiere: {(x == 1) || (x == -1)}
+    asegura: {res = 15 <--> x == 1}
+    asegura: {res = -15 <--> x == -1}
+}
+
+problema f3 (x: R): R {
+    requiere: {true}
+    asegura: {res = 7 <--> n <= 9. En caso contrario, verificar si x >= 3 <--> res = 5}
+}
+
+problema f4 (x, y: R) : R {
+    requiere: {true}
+    asegura: {res = (x+y)/2}
+}
+
+problema f5 (x: (R, R)) : R {
+    requiere: {true}
+    asegura: {res es la division entre la suma de la primera coordenada y la segunda coordenada y 2 }
+}
+
+problema f6 (x: R, y: Z) : Bool {
+    requiere: {true}
+    asegura: {res = True <--> truncate (x) == b}
+}
+
+problema truncate (x: R) : Z {
+    requiere: {true}
+    asegura: {res = al nùmero entero màs cercano de x a 0}
+}
+
+
