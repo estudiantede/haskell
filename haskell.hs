@@ -96,6 +96,20 @@ estanRelacionados x y = mod x y == 0
 -----------------------------------------------------------------------------------------------------------------
 --4) 
 
+{- 
+
+problema todoMenos (t1, t2: R × R) : Bool {
+    requiere: {true}
+    asegura: {res = True <--> la primer coordenada de t1 es menor a la 1ra de t2 Y la segunda coordenada de t1 es menor que la segunda coordenada de t2}
+}
+
+problema crearPar (x, y) : t {
+    requiere: {true}
+    asegura: {res devuelve una tupla en donde el primer elemento sea x y su segundo elemento sea y, sin importar su tipo}
+}
+
+-}
+
 --a)
 prodInterno :: (Int, Int) -> (Int, Int) -> Int
 prodInterno x y = (fst x) * (fst y) + (snd x) * (snd y)
@@ -178,6 +192,7 @@ sumaUltimosDosDigitos x = mod (abs x) 10 + mod (div (abs x) 10) 10
 
 -----------------------------------------------------------------------------------------------------------------
 --Ej 9
+
 {-
 problema f1 (x: R) : Float {
     requiere: {true}
@@ -222,6 +237,15 @@ problema truncate (x: R) : Z {
 
 
 
+
+
+
+
+
+
+
+
+
 --a)
 
 --b)
@@ -241,50 +265,3 @@ problema truncate (x: R) : Z {
 --i)
 
 --j)
-
-
-
-
-{- 
-
-problema todoMenos (t1, t2: R × R) : Bool {
-    requiere: {true}
-    asegura: {res = True <--> la primer coordenada de t1 es menor a la 1ra de t2 Y la segunda coordenada de t1 es menor que la segunda coordenada de t2}
-}
-
-problema crearPar (x, y) : t {
-    requiere: {true}
-    asegura: {res devuelve una tupla en donde el primer elemento sea x y su segundo elemento sea y, sin importar su tipo}
-}
-
-Eq t :: t -> t 
-
--}
-
-crearPar :: t -> t -> (t, t)
-crearPar x y = (x, y)
-
---
-
-f :: Int -> Int
-f x | x <= 7 = x ^ 2
-    | x > 7 = 2 * x - 1
-
-g :: Int -> Int 
-g x | mod x 2 == 0 = div x 2
-    | otherwise = 3 * x + 1
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
