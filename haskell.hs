@@ -97,15 +97,44 @@ estanRelacionados x y = mod x y == 0
 --4) 
 
 {- 
+problema prodInterno (x, y: R x R) : Z {
+    requiere: {true}
+    asegura: {res = x.0 * y.0 + x.1 * y.1}
+}
 
-problema todoMenos (t1, t2: R × R) : Bool {
+problema todoMenor (t1, t2: R × R) : Bool {
     requiere: {true}
     asegura: {res = True <--> la primer coordenada de t1 es menor a la 1ra de t2 Y la segunda coordenada de t1 es menor que la segunda coordenada de t2}
+}
+
+problema distanciaPuntos (x, y: R x R) : R {
+    requiere: {true}
+    asegura: {res = sqrt ((x.0 - y.0) ^ 2) + (x.1 - y.1) ^ 2 )}
+}
+
+problema sumaTerna (x: R x R x R) : R {
+    requiere: {true}
+    asegura: {res = la suma de los 3 elementos de x}
+}
+
+problema sumarSoloMultiplos (x: Z x Z x Z, y : Z) : Z {
+    requiere: {true}
+    asegura: {res = la suma de los núméros cuyo modulo entre cada coordena e y sea 0}
+}
+
+problema posPrimerPar (x: Z x Z x Z) : Z {
+    requiere: {true}
+    asegura: {Res = posición (0 index) en donde se encuentre el primer número par. Si son todos impar, devolver 4}
 }
 
 problema crearPar (x, y) : t {
     requiere: {true}
     asegura: {res devuelve una tupla en donde el primer elemento sea x y su segundo elemento sea y, sin importar su tipo}
+}
+
+problema invertir (x: a x b) : (b,a) {
+    requiere: {true}
+    asegura: {res = a la dupla x invertida en su orden}
 }
 
 -}
