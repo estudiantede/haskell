@@ -11,6 +11,18 @@ fibonacci x = fibonacci (x - 1) + fibonacci (x - 2)
 
 --Ej 3
 
+{-
+    problema esDivisible (x, y: Integer) : Bool {
+        requiere: {x e y deben ser > 0}
+        asegura: {res devuelve true sii x es visible por y. En caso contrario, devolverà false}
+    }
+-}
+
+esDivisible :: Integer -> Integer -> Bool 
+esDivisible 0 y = True
+esDivisible x y | x < 0 = False
+esDivisible x y = esDivisible (x- y) y
+
 --Ej 4
 
 --Ej 5
