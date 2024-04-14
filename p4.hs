@@ -48,7 +48,16 @@ medioFact x | x <= 0 = 1
 
 --Ej 6
 
+{-
+    problema sumaDigitos (x,y: Integer) :  {
+        requiere: {true}
+        asegura: {res devuelve la suma de todos los dìgitos de un nùmero}
+    }
+-}
 
+sumaDigitos :: Int -> Int
+sumaDigitos 0 = 0
+sumaDigitos x = (mod x 10) + sumaDigitos (div x 10)
 
 --Ej 7
 
@@ -79,3 +88,10 @@ medioFact x | x <= 0 = 1
 --Ej 20
 
 --Ej 21
+
+{-
+    problema  () :  {
+        requiere: {}
+        asegura: {}
+    }
+-}
