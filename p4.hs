@@ -25,6 +25,20 @@ esDivisible x y = esDivisible (x- y) y
 
 --Ej 4
 
+{-
+    problema sumaImpares (x: Integer) : Integer {
+        requiere: {x debe ser > 0}
+        asegura: {res devuelve la suma de los números impares menos a x}
+    }
+-}
+
+sumaImpares :: Int -> Int 
+sumaImpares x | mod x 2 == 0 = sumaImparesImpar (x - 1)
+              | otherwise = sumaImparesImpar x
+
+sumaImparesImpar :: Int -> Int 
+sumaImparesImpar x | x <= 0 = 0
+                 | otherwise = x + sumaImparesImpar (x - 2)
 --Ej 5
 
 --Ej 6
