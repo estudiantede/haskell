@@ -61,6 +61,15 @@ sumaDigitos x = (mod x 10) + sumaDigitos (div x 10)
 
 --Ej 7
 
+iesimoDigito :: Integer -> Integer -> Integer 
+iesimoDigito x y = mod (div x 10 ^ (cantDigitos x - y)) 10
+
+
+cantDigitos :: Integer -> Integer 
+cantDigitos 0 = 1
+cantDigitos x | x < 10 = 1
+cantDigitos x | otherwise =  1 + cantDigitos (div x 10)
+
 --Ej 8
 
 --Ej 9
