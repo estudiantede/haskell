@@ -39,9 +39,16 @@ sumaImpares x | mod x 2 == 0 = sumaImparesImpar (x - 1)
 sumaImparesImpar :: Int -> Int 
 sumaImparesImpar x | x <= 0 = 0
                  | otherwise = x + sumaImparesImpar (x - 2)
+
 --Ej 5
 
+medioFact :: Integer -> Integer
+medioFact x | x <= 0 = 1
+            | otherwise = x * medioFact (x - 2)
+
 --Ej 6
+
+
 
 --Ej 7
 
