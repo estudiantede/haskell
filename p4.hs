@@ -9,6 +9,10 @@ fibonacci x = fibonacci (x - 1) + fibonacci (x - 2)
 
 --Ej 2
 
+parteEntera :: Float -> Int
+parteEntera x | x < 1 = 0
+parteEntera x | x > 0 = 1 + parteEntera (x - 1)
+
 --Ej 3
 
 {-
@@ -61,22 +65,116 @@ sumaDigitos x = (mod x 10) + sumaDigitos (div x 10)
 
 --Ej 7
 
-iesimoDigito :: Integer -> Integer -> Integer 
+todosDigitosIguales :: Int -> Bool
+todosDigitosIguales x | igualSiguiente x (mod x 10) == 1 = True
+                      | otherwise = False
+
+igualSiguiente :: Int -> Int -> Int
+igualSiguiente x y | x < 10 && x == y = 1
+                   | x < 10 && x /= y = 0
+                   | mod x 10 == y = igualSiguiente (div x 10) y
+                   | otherwise = 0
+
+--Ej 8
+
+iesimoDigito :: Int -> Int -> Int 
 iesimoDigito x y = mod (div x 10 ^ (cantDigitos x - y)) 10
 
 
-cantDigitos :: Integer -> Integer 
+cantDigitos :: Int -> Int 
 cantDigitos 0 = 1
 cantDigitos x | x < 10 = 1
 cantDigitos x | otherwise =  1 + cantDigitos (div x 10)
 
---Ej 8
-
 --Ej 9
 
+{-
+    problema esCapicua (x: Z) : Bool {
+        requiere: {x tiene que ser >= 0}
+        asegura: {res devuelve true si por cada número en la posición i hay un digito en la pos x - i que sea el mismo. 
+        En caso contrario, devuelve false}
+    }
+-}
+
+--esCapicua :: Integer -> Bool
+{-
+esCapicua :: Int -> Bool
+esCapicua x | x < 10 = True
+            | capicua x == 1 = True -- POner que sea solo positivo, en caso contrario, pasar a otra guarda para neg y luego sino, devolver Flase
+            | otherwise = False
+-}
+
+sacarUltPri :: Int -> Int
+sacarUltPri x = div (x - (10 ^ ((cantDigitos x) - 1)) * (iesimoDigito x (cantDigitos x))) 10
+
+aux :: Int -> Int
+aux x = iesimoDigito x (cantDigitos x)
+
+aux2 :: Int -> Int
+aux2 x = (10 ^ ((cantDigitos x) - 1))
+    --div x 10
 --Ej 10
 
+--a)
+
+{-
+    problema  () :  {
+        requiere: {}
+        asegura: {}
+    }
+-}
+
+f1 :: Int -> Int
+f1 0 = 1
+f1 x = 2 ^ x + f1 (x - 1)
+
+--b)
+{-
+    problema  () :  {
+        requiere: {}
+        asegura: {}
+    }
+-}
+
+f2 :: Int -> Int -> Int
+f2 1 q = q
+f2 n q = q ^ n + f2 (n - 1) q
+
+--c)
+
+{-
+    problema  () :  {
+        requiere: {}
+        asegura: {}
+    }
+-}
+
+f3 :: Int -> Int -> Int
+f3 x y = g3 (2 * x) y 
+
+g3 :: Int -> Int -> Int
+g3 1 y = y
+g3 x y = y ^ x + g3 (x - 1) y
+
+--d)
+
+{-
+    problema  () :  {
+        requiere: {}
+        asegura: {}
+    }
+-}
+
+f4 :: Int -> Int -> Int
+f4 x y = g4 (2 * x) y 
+
+g4 :: Int -> Int -> Int
+g4 x y | x == y = y ^ x
+       | otherwise = y ^ x + g3 (x - 1) y
+
 --Ej 11
+
+
 
 --Ej 12
 
