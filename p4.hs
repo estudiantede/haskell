@@ -180,6 +180,20 @@ e = eAprox 10
 
 --Ej 12
 
+raizDe2Aprox :: Int -> Float
+raizDe2Aprox x = raizDe2 (x - 1)
+
+raizDe2 :: Int -> Float
+raizDe2 0 = 2
+raizDe2 n = 1 + (1.0 / raizDe2 (n - 1))
+
+raiz :: Integer -> Float
+raiz n = sucecionA n - 1
+
+sucecionA :: Integer -> Float
+sucecionA n | n == 0 = 2
+            | otherwise = 2 + (1 / raiz (n-1))
+
 --Ej 13
 
 --Ej 14
