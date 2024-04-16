@@ -166,7 +166,17 @@ g4 x y | x == y = y ^ x
 
 --Ej 11
 
+eAprox :: Int -> Float
+eAprox 0 = 1
+eAprox x = 1.0 / (fromIntegral (factorial x)) + eAprox (x - 1)
 
+factorial :: Int -> Int
+factorial 0 = 1
+factorial n = n * factorial (n - 1)
+
+
+e :: Float
+e = eAprox 10
 
 --Ej 12
 
