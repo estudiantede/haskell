@@ -97,22 +97,14 @@ cantDigitos x | otherwise =  1 + cantDigitos (div x 10)
 -}
 
 --esCapicua :: Integer -> Bool
-{-
+
 esCapicua :: Int -> Bool
-esCapicua x | x < 10 = True
-            | capicua x == 1 = True -- POner que sea solo positivo, en caso contrario, pasar a otra guarda para neg y luego sino, devolver Flase
-            | otherwise = False
--}
+esCapicua x = x == inverso x
 
-sacarUltPri :: Int -> Int
-sacarUltPri x = div (x - (10 ^ ((cantDigitos x) - 1)) * (iesimoDigito x (cantDigitos x))) 10
+inverso :: Int -> Int
+inverso x | x < 10 = x
+inverso x | otherwise =  (mod x 10) * (10 ^ ((cantDigitos x) - 1)) + inverso (div x 10)
 
-aux :: Int -> Int
-aux x = iesimoDigito x (cantDigitos x)
-
-aux2 :: Int -> Int
-aux2 x = (10 ^ ((cantDigitos x) - 1))
-    --div x 10
 --Ej 10
 
 --a)
