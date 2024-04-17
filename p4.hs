@@ -202,6 +202,38 @@ sucecionA n | n == 0 = 2
 
 --Ej 16
 
+menorDivisor :: Int -> Int
+menorDivisor x = menDiv x 2
+
+menDiv :: Int -> Int -> Int
+menDiv x y | x == y = x
+           | mod x y == 0 = y
+           | otherwise = menDiv x (y+1)
+
+esPrimo :: Int -> Bool 
+esPrimo x | menorDivisor x == x = True
+          | otherwise = False
+
+sonCoprimos :: Int -> Int -> Bool
+sonCoprimos x y = coprimos x y 2
+
+coprimos :: Int -> Int -> Int -> Bool
+coprimos x y z | mod x z == 0 && mod y z == 0 = False
+               | z > x && z > y = True
+               | otherwise = coprimos x y (z + 1)
+
+nEsimoPrimo :: Int -> Int
+nEsimoPrimo x = primoNum 1 0 x
+
+-- x numero por el que voy buscando
+-- y es el numero de primos encontrados
+-- z es el numero de primo a buscar
+primoNum :: Int -> Int -> Int -> Int
+primoNum x y z | y == z = x - 1 ---Porque ya se sabe 
+               | esPrimo x = primoNum (x + 1) (y + 1) (z)
+               | otherwise = primoNum (x + 1) (y) (z)
+
+
 --Ej 17
 
 --Ej 18
