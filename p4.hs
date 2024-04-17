@@ -196,6 +196,29 @@ sucecionA n | n == 0 = 2
 
 --Ej 13
 
+{-
+    problema f13 (n,m: Z) :  {
+        requiere: {n y m >= 1}
+        asegura: {devuelve la sumatoria de todos los números que vayan de 1 a n elevados a j todos ellos}
+        asegura: {va desde el n a 1 elevandolo a tal j, luego, se resta j por 1 y se repita hast qeu j sea 0}
+    }
+-}
+
+f13 :: Int -> Int -> Int
+f13 0 y = 0
+f13 x y = auxiliar x y + f13 (x - 1) y
+
+
+--Funcion que sume todos los nùmeros n ^ m hasta 1^m
+auxiliar1 :: Int -> Int -> Int
+auxiliar1 1 y = 1
+auxiliar1 x y = x ^ y + auxiliar1 (x -1) y
+
+auxiliar :: Int ->Int -> Int
+auxiliar x 1 = x
+auxiliar x y = x ^ y + auxiliar x (y - 1)
+
+
 --Ej 14
 
 --Ej 15
