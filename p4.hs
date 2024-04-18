@@ -259,6 +259,14 @@ primoNum x y z | y == z = x - 1 ---Porque ya se sabe
 
 --Ej 17
 
+esFibonacci :: Int -> Bool
+esFibonacci x = esFibonacciAux x 1
+
+esFibonacciAux :: Int -> Int -> Bool
+esFibonacciAux x y | x == fibonacci y = True
+                   | x < fibonacci y = False
+                   | otherwise = esFibonacciAux x (y + 1) 
+
 --Ej 18
 
 --Ej 19
