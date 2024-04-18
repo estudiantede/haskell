@@ -218,11 +218,19 @@ auxiliar :: Int ->Int -> Int
 auxiliar x 1 = x
 auxiliar x y = x ^ y + auxiliar x (y - 1)
 
-
 --Ej 14
 
---Ej 15
+sumaPotencias :: Int -> Int -> Int -> Int
+sumaPotencias q 1 m = q ^ (1 + m)
+sumaPotencias q n m = sumaPotenciasAux q n m + sumaPotencias q (n - 1) m
 
+sumaPotenciasAux :: Int -> Int -> Int -> Int
+sumaPotenciasAux q n 1 = q ^ (n + 1)
+sumaPotenciasAux q n m = q ^ (n + m) + sumaPotenciasAux q n (m - 1)
+
+--Ej 15 
+
+--sumaRacionales 
 --Ej 16
 
 menorDivisor :: Int -> Int
@@ -259,7 +267,26 @@ primoNum x y z | y == z = x - 1 ---Porque ya se sabe
 
 --Ej 17
 
+esFibonacci :: Int -> Bool
+esFibonacci x = esFibonacciAux x 1
+
+esFibonacciAux :: Int -> Int -> Bool
+esFibonacciAux x y | x == fibonacci y = True
+                   | x < fibonacci y = False
+                   | otherwise = esFibonacciAux x (y + 1) 
+
 --Ej 18
+
+mayorDigitoPar :: Int -> Int
+mayorDigitoPar x | mod x 2 == 0 = mayorDigitoParAux x (mod x 10)
+                 | otherwise = mayorDigitoParAux x (-1)
+
+mayorDigitoParAux :: Int -> Int -> Int
+mayorDigitoParAux x y | mod x 2 == 0 && (mod x 10) >= y && x >= 10 = mayorDigitoParAux (div x 10) (mod x 10)
+                      | mod x 2 == 0 && x >= 10 = mayorDigitoParAux (div x 10) y
+                      | x < 10 && mod x 2 == 0 && (mod x 10) >= y = mod x 10
+                      | x < 10 = y
+                      | otherwise = mayorDigitoParAux (div x 10) y
 
 --Ej 19
 
