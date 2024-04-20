@@ -221,12 +221,14 @@ auxiliar x y = x ^ y + auxiliar x (y - 1)
 --Ej 14
 
 sumaPotencias :: Int -> Int -> Int -> Int
-sumaPotencias q 1 m = q ^ (1 + m)
-sumaPotencias q n m = sumaPotenciasAux q n m + sumaPotencias q (n - 1) m
+sumaPotencias 0 y q = 0
+sumaPotencias x y q = sumaPotenciasAux x y q + sumaPotencias (x -1) y q
 
 sumaPotenciasAux :: Int -> Int -> Int -> Int
-sumaPotenciasAux q n 1 = q ^ (n + 1)
-sumaPotenciasAux q n m = q ^ (n + m) + sumaPotenciasAux q n (m - 1)
+sumaPotenciasAux x 1 q = q ^ (x + 1)
+sumaPotenciasAux x y q = q ^ (x + y) + sumaPotenciasAux x (y - 1) q
+
+--Otra idea serìa sumar (x + y ) y luego pasar tambien el minimo entre x e y y se hacen todas las potencias desde el minimo hasta x+y
 
 --Ej 15 
 
@@ -289,6 +291,7 @@ mayorDigitoParAux x y | mod x 2 == 0 && (mod x 10) >= y && x >= 10 = mayorDigito
                       | otherwise = mayorDigitoParAux (div x 10) y
 
 --Ej 19
+
 
 --Ej 20
 
