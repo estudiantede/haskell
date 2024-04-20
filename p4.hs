@@ -218,11 +218,29 @@ auxiliar :: Int ->Int -> Int
 auxiliar x 1 = x
 auxiliar x y = x ^ y + auxiliar x (y - 1)
 
-
 --Ej 14
 
---Ej 15
+sumaPotencias :: Int -> Int -> Int -> Int
+sumaPotencias 0 y q = 0
+sumaPotencias x y q = sumaPotenciasAux x y q + sumaPotencias (x -1) y q
 
+sumaPotenciasAux :: Int -> Int -> Int -> Int
+sumaPotenciasAux x 1 q = q ^ (x + 1)
+sumaPotenciasAux x y q = q ^ (x + y) + sumaPotenciasAux x (y - 1) q
+
+--Otra idea serìa sumar (x + y ) y luego pasar tambien el minimo entre x e y y se hacen todas las potencias desde el minimo hasta x+y
+
+--Ej 15 
+
+sumaRacionales :: Int -> Int -> Float
+sumaRacionales 0 y = 0
+sumaRacionales x y = sumaRacionalesAux x y + sumaRacionales (x - 1) y
+
+sumaRacionalesAux :: Int -> Int -> Float
+sumaRacionalesAux x 0 = 0
+sumaRacionalesAux x y = ((fromIntegral x) / (fromIntegral y)) + sumaRacionalesAux x (y - 1)
+
+--sumaRacionales 
 --Ej 16
 
 menorDivisor :: Int -> Int
@@ -269,7 +287,19 @@ esFibonacciAux x y | x == fibonacci y = True
 
 --Ej 18
 
+mayorDigitoPar :: Int -> Int
+mayorDigitoPar x | mod x 2 == 0 = mayorDigitoParAux x (mod x 10)
+                 | otherwise = mayorDigitoParAux x (-1)
+
+mayorDigitoParAux :: Int -> Int -> Int
+mayorDigitoParAux x y | mod x 2 == 0 && (mod x 10) >= y && x >= 10 = mayorDigitoParAux (div x 10) (mod x 10)
+                      | mod x 2 == 0 && x >= 10 = mayorDigitoParAux (div x 10) y
+                      | x < 10 && mod x 2 == 0 && (mod x 10) >= y = mod x 10
+                      | x < 10 = y
+                      | otherwise = mayorDigitoParAux (div x 10) y
+
 --Ej 19
+
 
 --Ej 20
 
