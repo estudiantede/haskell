@@ -232,6 +232,14 @@ sumaPotenciasAux x y q = q ^ (x + y) + sumaPotenciasAux x (y - 1) q
 
 --Ej 15 
 
+sumaRacionales :: Int -> Int -> Float
+sumaRacionales 0 y = 0
+sumaRacionales x y = sumaRacionalesAux x y + sumaRacionales (x - 1) y
+
+sumaRacionalesAux :: Int -> Int -> Float
+sumaRacionalesAux x 0 = 0
+sumaRacionalesAux x y = ((fromIntegral x) / (fromIntegral y)) + sumaRacionalesAux x (y - 1)
+
 --sumaRacionales 
 --Ej 16
 
