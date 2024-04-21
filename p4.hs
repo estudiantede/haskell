@@ -300,6 +300,18 @@ mayorDigitoParAux x y | mod x 2 == 0 && (mod x 10) >= y && x >= 10 = mayorDigito
 
 --Ej 19
 
+esSumaInicialDePrimos :: Int -> Bool
+esSumaInicialDePrimos n = esSumaInicialDePrimosAux n 0 2
+
+
+-- x numero a comparar
+-- y suma de los numeros primos n primeros
+-- z numero por el que se va sumnado
+esSumaInicialDePrimosAux :: Int -> Int -> Int -> Bool
+esSumaInicialDePrimosAux x y z | x == y = True
+                               | y > x = False
+                               | esPrimo z = esSumaInicialDePrimosAux x (y + z) (z +1)
+                               | otherwise = esSumaInicialDePrimosAux x y (z +1)
 
 --Ej 20
 
