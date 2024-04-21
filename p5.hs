@@ -9,6 +9,9 @@ longitud (x:xs) = 1 + longitud xs
 
     -- II)
 
+ultimo :: [t] -> t
+ultimo (x:xs) | longitud xs == 0 = x
+              | otherwise = ultimo xs
     -- III)
 
     -- IV)
