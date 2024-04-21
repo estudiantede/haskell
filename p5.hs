@@ -12,10 +12,15 @@ longitud (x:xs) = 1 + longitud xs
 ultimo :: [t] -> t
 ultimo (x:xs) | longitud xs == 0 = x
               | otherwise = ultimo xs
+
     -- III)
 
-    -- IV)
+principio :: [t] -> [t]
+principio [] = []
+principio (x:xs) | longitud xs == 1 = [x]
+                 | otherwise = x : principio xs
 
+    -- IV)
 -- Ej 2
 
     --I) 
