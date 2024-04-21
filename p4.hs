@@ -317,6 +317,12 @@ esSumaInicialDePrimosAux x y z | x == y = True
 
 --Ej 21
 
+pitagoras :: Int -> Int -> Int -> Int
+pitagoras 0 y z = 
+
+sumaPitagoras :: Int -> Int -> Int -> Int
+sumaPitagoras
+
 {-
     problema  () :  {
         requiere: {}
