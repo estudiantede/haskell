@@ -61,6 +61,9 @@ todosDistintosAux q (x:xs) | q /= x = todosDistintosAux q xs
 
     -- IV)
 
+hayRepetidos :: (Eq t) => [t] -> Bool
+hayRepetidos x = not (todosDistintos x)
+
     -- V)
 
     -- VI)
