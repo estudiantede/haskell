@@ -106,7 +106,15 @@ capicua x = (inverso x) == x
 
     --I) 
 
+sumatoria :: [Int] -> Int
+sumatoria [] = 0
+sumatoria (x:xs) = x + sumatoria xs
+
     -- II)
+
+productoria :: [Int] -> Int
+productoria [] = 1
+productoria (x:xs) = x * productoria xs
 
     -- III)
 
