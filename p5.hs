@@ -156,9 +156,23 @@ sumarElUltimo x = sumarN (ultimo x) x
 
     -- VII)
 
+pares :: [Int] -> [Int]
+pares [] = []
+pares (x:xs) | mod x 2 == 0 = x : pares xs
+             | otherwise = pares xs
+
     -- VIII)
 
+multiplosDeN :: Int -> [Int] -> [Int]
+multiplosDeN q [] = []
+multiplosDeN q (x:xs) | mod x q == 0 = x : multiplosDeN q xs
+                      | otherwise = multiplosDeN q xs
+
     -- IX)
+
+ordenar :: [Int] -> [Int]
+ordenar [] = []
+ordenar xs = ordenar (quitar (maximo xs) xs) ++ [maximo xs]
 
 -- Ej 4
 
