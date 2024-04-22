@@ -99,6 +99,9 @@ mismosElementosAux (x:xs) ys | pertenece x ys = mismosElementosAux xs ys
 
     -- IX)
 
+capicua :: (Eq t) => [t] -> Bool
+capicua x = (inverso x) == x
+
 -- Ej 3
 
     --I) 
