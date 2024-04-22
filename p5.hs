@@ -46,8 +46,14 @@ todosIgualesAux q [] = True
 todosIgualesAux q (x:xs) | q == x = todosIgualesAux q xs
                          | otherwise = False
 
-
     -- III)
+-- Debe de verse a todos los elementos que esten en frente de sí
+-- No hace falta verificar los de atras, porque ya fue verificado
+--Entonces hacia delante, como los burros
+
+todosDistintos :: (Eq t) => [t] -> Bool
+todosDistintos
+
 
     -- IV)
 
