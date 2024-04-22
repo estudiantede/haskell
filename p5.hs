@@ -72,8 +72,17 @@ quitar q (x:xs) | q /= x = concat [[x], (quitar q xs)]
                 | otherwise = xs
 
     -- VI)
-
+    
+quitarTodos :: (Eq t) => t -> [t] -> [t]
+quitarTodos q [] = []
+quitarTodos q (x:xs) | q /= x = x : (quitarTodos q xs)
+                     | otherwise = quitarTodos q xs
+                     
     -- VII)
+
+eliminarRepetidos :: (Eq t) => [t] -> [t]
+eliminarRepetidos [] = []
+eliminarRepetidos (x:xs) = x : eliminarRepetidos (quitarTodos x xs)
 
     -- VIII)
 
