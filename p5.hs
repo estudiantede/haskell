@@ -86,6 +86,17 @@ eliminarRepetidos (x:xs) = x : eliminarRepetidos (quitarTodos x xs)
 
     -- VIII)
 
+mismosElementos :: (Eq t) => [t] -> [t] -> Bool
+mismosElementos xs ys = mismoTamañoSinRepetidos xs ys && mismosElementosAux (eliminarRepetidos xs) (eliminarRepetidos ys)
+
+mismoTamañoSinRepetidos :: (Eq t) => [t] -> [t] -> Bool
+mismoTamañoSinRepetidos x y = (longitud (eliminarRepetidos x)) == (longitud (eliminarRepetidos y))
+
+mismosElementosAux :: (Eq t) => [t] -> [t] -> Bool
+mismosElementosAux [] _ = True --Se que es True, porque deben de tener la misma longitud
+mismosElementosAux (x:xs) ys | pertenece x ys = mismosElementosAux xs ys
+                             | otherwise = False
+
     -- IX)
 
 -- Ej 3
