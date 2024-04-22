@@ -21,6 +21,11 @@ principio (x:xs) | longitud xs == 1 = [x]
                  | otherwise = x : principio xs
 
     -- IV)
+
+inverso :: [t] -> [t]
+inverso [] = []
+inverso (x:xs) = concat [(inverso xs), [x]]
+
 -- Ej 2
 
     --I) 
