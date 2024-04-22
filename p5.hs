@@ -37,6 +37,16 @@ pertenece n (x:xs) | n == x = True
 
     -- II)
 
+todosIguales :: (Eq a) => [a] -> Bool
+todosIguales [] = True
+todosIguales (x:xs) = todosIgualesAux x xs
+
+todosIgualesAux :: (Eq a) => a -> [a] -> Bool
+todosIgualesAux q [] = True
+todosIgualesAux q (x:xs) | q == x = todosIgualesAux q xs
+                         | otherwise = False
+
+
     -- III)
 
     -- IV)
