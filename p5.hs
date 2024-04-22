@@ -118,6 +118,15 @@ productoria (x:xs) = x * productoria xs
 
     -- III)
 
+maximo :: [Int] -> Int
+maximo (x:xs) = maximoAux x xs
+
+maximoAux :: Int -> [Int] -> Int
+maximoAux q [] = q
+maximoAux q (x:xs) | q > x = maximoAux q xs
+                   | otherwise = maximoAux x xs
+
+
     -- IV)
 
     -- V)
