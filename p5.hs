@@ -30,6 +30,11 @@ inverso (x:xs) = concat [(inverso xs), [x]]
 
     --I) 
 
+pertenece :: (Eq a) => a -> [a] -> Bool
+pertenece n [] = False
+pertenece n (x:xs) | n == x = True
+                   | otherwise = pertenece n xs
+
     -- II)
 
     -- III)
