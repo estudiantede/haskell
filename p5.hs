@@ -66,6 +66,11 @@ hayRepetidos x = not (todosDistintos x)
 
     -- V)
 
+quitar :: (Eq t) => t -> [t] -> [t]
+quitar q [] = []
+quitar q (x:xs) | q /= x = concat [[x], (quitar q xs)]
+                | otherwise = xs
+
     -- VI)
 
     -- VII)
