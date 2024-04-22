@@ -117,9 +117,20 @@ productoria [] = 1
 productoria (x:xs) = x * productoria xs
 
     -- III)
-
 maximo :: [Int] -> Int
-maximo (x:xs) = maximoAux x xs
+maximo [x] = x
+maximo [x, y] | x > y = x
+              | otherwise = y
+maximo (x:xs) | x > (head xs) = maximo (x : (tail xs))
+              | otherwise = maximo ((head xs) : (tail xs))
+
+--Forma alternativa, con 2 funciones
+
+maximo1 :: [Int] -> Int
+maximo1 [a] = a
+maximo1 (x:xs) = maximoAux x xs
+
+
 
 maximoAux :: Int -> [Int] -> Int
 maximoAux q [] = q
@@ -129,9 +140,19 @@ maximoAux q (x:xs) | q > x = maximoAux q xs
 
     -- IV)
 
+sumarN :: Int -> [Int] -> [Int]
+sumarN _ [] = []
+sumarN q (x:xs) = (q + x) : sumarN q xs
+
     -- V)
+    
+sumarElPrimero :: [Int] -> [Int] 
+sumarElPrimero (x:xs) = (x + x) : (sumarN x xs)
 
     -- VI)
+
+sumarElUltimo :: [Int] -> [Int]
+sumarElUltimo x = sumarN (ultimo x) x
 
     -- VII)
 
