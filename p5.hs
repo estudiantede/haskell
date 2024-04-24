@@ -121,8 +121,8 @@ maximo :: [Int] -> Int
 maximo [x] = x
 maximo [x, y] | x > y = x
               | otherwise = y
-maximo (x:xs) | x > (head xs) = maximo (x : (tail xs))
-              | otherwise = maximo ((head xs) : (tail xs))
+maximo (x:y:xs) | x > (y) = maximo (x : xs)
+              | otherwise = maximo (y : xs)
 
 --Forma alternativa, con 2 funciones
 
@@ -179,7 +179,19 @@ ordenar xs = ordenar (quitar (maximo xs) xs) ++ [maximo xs]
 -- a)
        --a)
        
+sacarBlancosRepetidos :: [Char] -> [Char]
+sacarBlancosRepetidos [] = []
+sacarBlancosRepetidos [a] = [a]
+sacarBlancosRepetidos [a, b] | a == b && a == ' ' = [a]
+                             | otherwise = [a, b]
+sacarBlancosRepetidos (n:m:xs) | n /= ' ' && m /= ' '= n : sacarBlancosRepetidos (m: xs)  
+                               | n == ' ' && n == m = sacarBlancosRepetidos (xs)
+                               | n == ' ' && n /= m = m : sacarBlancosRepetidos (xs)
+                               | m == ' ' = n : m : sacarBlancosRepetidos (xs)
+
        --b)
+
+       
        
        --c)
 
