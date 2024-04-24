@@ -1,0 +1,53 @@
+Parcial online de Introducción a la Programación (Algoritmos y Estructuras de Datos 1)
+
+A partir de ahora estás en instancia de examen. Una vez que le des "Aceptar" a los términos y condiciones de esta página vas a estar accediendo a una instancia de evaluación formal, presencial en Exactas. Esto implica que este examen en computadora, tiene las mismas reglas que toda evaluación en la Universidad de Buenos Aires.
+
+De acuerdo al Anexo del RÉGIMEN DISCIPLINARIO PARA ESTUDIANTES, Resolución (CS) 2283/881, podrán aplicarse sanciones de suspensión o apercibimiento en caso de contradecir dicho régimen. Modificar, alterar, tratar de romper, hackear, etc., el examen o los servidores y computadoras de ésta Universidad son motivo de apercibimiento. Las sanciones previstas en el artículo precedente serán individualizadas en cada caso, en forma proporcional a la gravedad de la falta cometida y al reproche que merezca el comportamiento del alumno.
+
+Esta plataforma recopilará datos de la computadora que vas a utilizar para poder:
+
+    Tomar asistencia
+    Brindarte tu tema de examen con los ejercicios
+    Almacenar tus respuestas para su evaluación
+
+En la siguiente página te solicitaremos algunos datos personales para poder identificarte.
+
+Esta información será almacenada en un servidor que se encuentra en la facultad, sin acceso a Internet.
+
+Los datos recopilados serán los siguientes:
+
+    Nombre,
+    Apellido,
+    DNI/Pasaporte,
+    Libreta Universitaria,
+    Email,
+    Número identificador de computadora,
+    Dirección MAC,
+    Timestamp de cada envío.
+
+Estos datos serán utilizados tanto para:
+
+    Dejar registro de la computadora que estás utilizando,
+    El horario de ingreso al parcial y
+    Validación de identidad por parte del cuerpo docente durante la evaluación.
+
+Te comprometes a ingresar estos datos de forma fehaciente.
+
+Si por error cerrás el navegador, no te preocupes, podés volver a iniciar el proceso de carga del parcial (desde esta web inicial) todas las veces que necesites. Se registrarán tus datos y los datos de la computadora cada vez que lo hagas, dejando un historial de cambios realizados.
+
+Una vez ingresados tus datos personales te brindaremos la hoja del parcial con los ejercicios del tema que se te asignó.
+
+Podés trabajar en la computadora usando por ejemplo VS Code, o un editor de texto, y la consola para compilar. Sugerimos que vayas guardando el código en la computadora para no perderlo.
+
+Te recordamos que no podrás hacer uso de otros dispositivos electrónicos. No podrás llevarte la copia del parcial o tus respuestas en un pendrive, o captura de pantalla u otro medio.
+
+Una vez que tengas el código del examen completo, que vos quieras entregar, copialo y pegalo en la página del examen en el área destinada para completar con tu respuesta.
+
+Al finalizar el examen, tenés que enviarlo presionando el botón correspondiente al final de la página con el enunciado. Te mostraremos el código que estás por enviar y te solicitaremos que presiones confirmar para enviarlo. En este paso, si querés corregir algo podés volver atrás.
+
+Al ser una evaluación formal si desaprobas tenés derecho a rendir un recuperatorio.
+
+Recordá cronometrar cuánto demorás en cada ejercicio para que te alcance el tiempo para realizar todos.
+
+Muchos éxitos!
+Entiendo y acepto las pautas
