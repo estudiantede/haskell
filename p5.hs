@@ -197,12 +197,24 @@ contarPalabras [a] | a /= ' ' = 1
 contarPalabras (x:xs) | x == ' ' = 1 + contarPalabras xs
                       | otherwise = contarPalabras xs
        
-       
        --c)
+
+palabras :: [Char] -> [[Char]]
+palabras [] = [[]]
+--palabras (x:xs) | x == ' ' = 
 
        --d)
 
+aplanar :: [[Char]] -> [Char]
+aplanar [] = []
+aplanar (x:xs) = x ++ aplanar xs
+
        --e)
+
+aplanarConBlancos :: [[Char]] -> [Char]
+aplanarConBlancos [] = []
+aplanarConBlancos [a] = a
+aplanarConBlancos (x:xs) = x ++ " " ++ aplanarConBlancos xs
 
        --f)
 
