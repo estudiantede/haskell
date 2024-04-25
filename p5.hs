@@ -190,7 +190,12 @@ sacarBlancosRepetidos (n:m:xs) | n /= ' ' && m /= ' '= n : sacarBlancosRepetidos
                                | m == ' ' = n : m : sacarBlancosRepetidos (xs)
 
        --b)
-
+contarPalabras :: [Char] -> Int
+contarPalabras [] = 0
+contarPalabras [a] | a /= ' ' = 1
+                   | otherwise = 0
+contarPalabras (x:xs) | x == ' ' = 1 + contarPalabras xs
+                      | otherwise = contarPalabras xs
        
        
        --c)
