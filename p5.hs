@@ -178,23 +178,25 @@ ordenar xs = ordenar (quitar (maximo xs) xs) ++ [maximo xs]
 
 -- a)
        --a)
-       
+       {-
 sacarBlancosRepetidos :: [Char] -> [Char]
 sacarBlancosRepetidos [] = []
 sacarBlancosRepetidos [a] = [a]
 sacarBlancosRepetidos [a, b] | a == b && a == ' ' = [a]
                              | otherwise = [a, b]
-sacarBlancosRepetidos (n:m:xs) | n /= ' ' && m /= ' '= n : sacarBlancosRepetidos (m: xs)  
-                               | n == ' ' && n == m = sacarBlancosRepetidos (xs)
-                               | n == ' ' && n /= m = m : sacarBlancosRepetidos (xs)
-                               | m == ' ' = n : m : sacarBlancosRepetidos (xs)
+sacarBlancosRepetidos (n:m:xs) | n == ' ' && n == m = sacarBlancosRepetidos (xs)
+                               | otherwise = n : sacarBlancosRepetidos (m : xs)
 
        --b)
+
 contarPalabras :: [Char] -> Int
-contarPalabras [] = 0
-contarPalabras [a] | a /= ' ' = 1
+contarPalabras x = contarPalabrasAux (sacarBlancosRepetidos x)
+
+contarPalabrasAux :: [Char] -> Int
+contarPalabrasAux [] = 0
+contarPalabrasAux [a] | a /= ' ' = 1
                    | otherwise = 0
-contarPalabras (x:xs) | x == ' ' = 1 + contarPalabras xs
+contarPalabrasAux (x:xs) | x == ' ' = 1 + contarPalabras xs
                       | otherwise = contarPalabras xs
        
        --c)
@@ -203,6 +205,8 @@ palabras :: [Char] -> [[Char]]
 palabras [] = [[]]
 --palabras (x:xs) | x == ' ' = 
 
+
+-}
        --d)
 
 
@@ -232,7 +236,7 @@ devolverNBlancos x | x <= 0 = ""
                    | otherwise = ' ' : devolverNBlancos (x - 1)
 
 --b)
-
+-- Los ejercicios no cambiarían nada, ya que seguirìan siendo los mismas funciones, en donde, en este caso, serìan lo mismo
 --Ej 5)
 
     -- 1)
