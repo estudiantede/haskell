@@ -205,20 +205,31 @@ palabras [] = [[]]
 
        --d)
 
+
+
+       --e)
+
 aplanar :: [[Char]] -> [Char]
 aplanar [] = []
 aplanar (x:xs) = x ++ aplanar xs
 
-       --e)
+       --f)
 
 aplanarConBlancos :: [[Char]] -> [Char]
 aplanarConBlancos [] = []
 aplanarConBlancos [a] = a
 aplanarConBlancos (x:xs) = x ++ " " ++ aplanarConBlancos xs
 
-       --f)
-
        --g)
+
+aplanarConNBlancos :: [[Char]] -> Int -> [Char]
+aplanarConNBlancos [] _ = []
+aplanarConNBlancos [a] _ = a
+aplanarConNBlancos (x:xs) n = x ++ (devolverNBlancos n) ++ aplanarConNBlancos xs n
+
+devolverNBlancos :: Int -> String
+devolverNBlancos x | x <= 0 = ""
+                   | otherwise = ' ' : devolverNBlancos (x - 1)
 
 --b)
 
