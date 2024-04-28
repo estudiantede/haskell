@@ -241,4 +241,41 @@ devolverNBlancos x | x <= 0 = ""
 
     -- 1)
 
+sumaAcumulada :: (Num t) => [t] -> [t]
+sumaAcumulada [] = []
+sumaAcumulada [a] = [a]
+sumaAcumulada (x1:x2:xs) = x1 : sumaAcumulada ((x1 + x2):xs)
+
+
     -- 2)
+
+descomponerEnPrimos :: [Int] -> [[Int]]
+descomponerEnPrimos [] = []
+descomponerEnPrimos (x:xs) = (descomponerEnPrimosAux x 1) : descomponerEnPrimos xs
+
+
+descomponerEnPrimosAux :: Int -> Int -> [Int]
+descomponerEnPrimosAux 1 _ = []
+descomponerEnPrimosAux num primoN | mod num nPrimo == 0 = nPrimo : descomponerEnPrimosAux (div num nPrimo) primoN
+                                  | otherwise = descomponerEnPrimosAux num (primoN + 1)
+                                  where nPrimo = nEsimoPrimo1 primoN
+
+menorDivisor :: Int ->Int
+menorDivisor n = menorDivisorHasta n 2
+
+menorDivisorHasta :: Int -> Int -> Int -- se requiere que q == 2
+menorDivisorHasta n q | mod n q == 0 = q
+                      | otherwise = menorDivisorHasta n (q+1)
+
+
+esPrimo :: Int ->Bool
+esPrimo n | menorDivisor n == n = True
+          | otherwise = False
+
+nEsimoPrimo1 :: Int -> Int
+nEsimoPrimo1 n = nEsimoPrimoAux1 n 2 0
+
+nEsimoPrimoAux1 :: Int -> Int -> Int -> Int
+nEsimoPrimoAux1 n i k | n == k = i-1
+                     | esPrimo i = nEsimoPrimoAux1 n (i+1) (k+1)
+                     | otherwise = nEsimoPrimoAux1 n (i+1) k
