@@ -215,13 +215,20 @@ contarEspacios (x:xs) | x == ' ' = 1 + contarEspacios xs
                       | otherwise = contarEspacios xs
 
        --c)
-{-
 palabras :: [Char] -> [[Char]]
 palabras [] = [[]]
---palabras (x:xs) | x == ' ' = 
+palabras xs = palabrasAux (' ' : limpiarPalabra xs)
 
+palabrasAux :: [Char] -> [[Char]]
+palabrasAux [] = []
+palabrasAux (x:xs) | x == ' ' = (sacarPalabra xs) : palabrasAux xs
+                   | otherwise = palabrasAux xs
 
--}
+sacarPalabra :: [Char] -> [Char]
+sacarPalabra [] = []
+sacarPalabra (' ':xs) = []
+sacarPalabra (x:xs) = x : sacarPalabra xs
+
        --d)
 
 
