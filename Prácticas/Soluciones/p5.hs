@@ -178,15 +178,18 @@ ordenar xs = ordenar (quitar (maximo xs) xs) ++ [maximo xs]
 
 -- a)
        --a)
-       {-
+
 sacarBlancosRepetidos :: [Char] -> [Char]
 sacarBlancosRepetidos [] = []
 sacarBlancosRepetidos [a] = [a]
-sacarBlancosRepetidos [a, b] | a == b && a == ' ' = [a]
-                             | otherwise = [a, b]
-sacarBlancosRepetidos (n:m:xs) | n == ' ' && n == m = sacarBlancosRepetidos (xs)
-                               | otherwise = n : sacarBlancosRepetidos (m : xs)
+sacarBlancosRepetidos [a, b]   | a == b && a == ' ' = [a]
+                                  | otherwise = [a, b]
+sacarBlancosRepetidos(n:m:xs) | n /= ' ' && m /= ' ' = n : sacarBlancosRepetidos (m : xs)
+                                 | n == ' ' && m /= ' ' = n : sacarBlancosRepetidos (m : xs)
+                                 | n /= ' ' && m == ' ' = n : sacarBlancosRepetidos (m : xs)
+                                 | otherwise = sacarBlancosRepetidos (m:xs)
 
+       {-
        --b)
 
 contarPalabras :: [Char] -> Int
