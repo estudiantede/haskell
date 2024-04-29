@@ -189,21 +189,33 @@ sacarBlancosRepetidos(n:m:xs) | n /= ' ' && m /= ' ' = n : sacarBlancosRepetidos
                                  | n /= ' ' && m == ' ' = n : sacarBlancosRepetidos (m : xs)
                                  | otherwise = sacarBlancosRepetidos (m:xs)
 
-       {-
-       --b)
-
-contarPalabras :: [Char] -> Int
-contarPalabras x = contarPalabrasAux (sacarBlancosRepetidos x)
-
-contarPalabrasAux :: [Char] -> Int
-contarPalabrasAux [] = 0
-contarPalabrasAux [a] | a /= ' ' = 1
-                   | otherwise = 0
-contarPalabrasAux (x:xs) | x == ' ' = 1 + contarPalabras xs
-                      | otherwise = contarPalabras xs
        
-       --c)
+       --b)
+contarPalabras :: [Char] -> Int
+contarPalabras [] = 0
+contarPalabras xs = contarEspacios (limpiarPalabra xs) + 1
 
+limpiarPalabra :: [Char] -> [Char]
+limpiarPalabra xs = sacarBlancoFinal (sacarBlancoPrincipio (sacarBlancosRepetidos xs))
+
+sacarBlancoPrincipio :: [Char] -> [Char]
+sacarBlancoPrincipio [] = []
+sacarBlancoPrincipio (x:xs) | x == ' ' = xs
+                            | otherwise = x : xs
+
+sacarBlancoFinal :: [Char] -> [Char]
+sacarBlancoFinal [] = []
+sacarBlancoFinal [a] | a == ' ' = []
+                     | otherwise = [a]
+sacarBlancoFinal (x:xs) = x : sacarBlancoFinal xs
+
+contarEspacios :: [Char] -> Int
+contarEspacios [] = 0
+contarEspacios (x:xs) | x == ' ' = 1 + contarEspacios xs
+                      | otherwise = contarEspacios xs
+
+       --c)
+{-
 palabras :: [Char] -> [[Char]]
 palabras [] = [[]]
 --palabras (x:xs) | x == ' ' = 
