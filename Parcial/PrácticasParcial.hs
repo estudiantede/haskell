@@ -47,6 +47,8 @@ cantVotosTotales :: [Int] -> Int
 cantVotosTotales [] = 0
 cantVotosTotales (x:xs) = x + cantVotosTotales xs
 
+
+--4
 menosVotado :: [(String, String)] -> [Int] -> String
 menosVotado [(pres, vice)] votos = pres
 menosVotado formulas (y:ys) = nombreCandidatoPosX (numCandidatoMenosVotado y 1 1 (y:ys)) formulas
