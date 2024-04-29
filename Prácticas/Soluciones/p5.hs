@@ -231,6 +231,32 @@ sacarPalabra (x:xs) = x : sacarPalabra xs
 
        --d)
 
+palabraMasLarga :: [Char] -> [Char]
+palabraMasLarga [] = []
+palabraMasLarga xs = palabraEnPosicionX (buscarMasLargo (cantidadLetraPorPalabra (palabras xs))) (palabras xs)
+
+cantidadLetraPorPalabra :: [[Char]] -> [Int]
+cantidadLetraPorPalabra [] = []
+cantidadLetraPorPalabra (x:xs) = (cantidadLetras x) : (cantidadLetraPorPalabra xs)
+
+cantidadLetras :: [Char] -> Int
+cantidadLetras [] = 0
+cantidadLetras (x:xs) = 1 + cantidadLetras xs
+
+buscarMasLargo :: [Int] -> Int
+buscarMasLargo [] = 0
+buscarMasLargo [x] = x
+buscarMasLargo (x:xs) = buscarMasLargoAux x 1 1 (x:xs)
+
+buscarMasLargoAux :: Int -> Int -> Int ->  [Int] -> Int
+buscarMasLargoAux num pos posActual [] = pos
+buscarMasLargoAux num pos posActual (x:xs) | num < x = buscarMasLargoAux x posActual (posActual + 1) xs
+                                           | otherwise = buscarMasLargoAux num pos (posActual + 1) xs
+
+palabraEnPosicionX :: Int -> [[Char]] -> [Char]
+palabraEnPosicionX 1 [y] = y
+palabraEnPosicionX 1 (y:ys) = y
+palabraEnPosicionX x (y:ys) = palabraEnPosicionX (x-1) ys
 
 
        --e)
