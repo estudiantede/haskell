@@ -25,15 +25,56 @@ probarEjpeorCifrado = runTestTT testsEjpeorCifrado
 probarEjcombinacionesVigenere = runTestTT testsEjcombinacionesVigenere
 
 testsEjesMinuscula = test [
-    "hola" ~: (hola) ~?= 2
+    "a devuelve True" ~: (esMinuscula 'a') ~?= True,
+    "b devuelve True" ~: (esMinuscula 'b') ~?= True,
+    "c devuelve True" ~: (esMinuscula 'c') ~?= True,
+    "z devuelve True" ~: (esMinuscula 'z') ~?= True,
+    "A devuelve False" ~: (esMinuscula 'A') ~?= True,
+    "B devuelve True" ~: (esMinuscula 'B') ~?= True,
+    "C devuelve True" ~: (esMinuscula 'C') ~?= True,
+    "Z devuelve True" ~: (esMinuscula 'Z') ~?= True,
+    "Espacio devuelve False" ~: (esMinuscula ' ') ~?= True,
+    "? devuelve False" ~: (esMinuscula '?') ~?= True
     ]
 
 testsEjletraANatural = test [
-    "hola" ~: (hola) ~?= 2
+    "a devuelve 0" ~: (letraANatural 'a') ~?= 0,
+    "b devuelve 0" ~: (letraANatural 'b') ~?= 1,
+    "c devuelve 0" ~: (letraANatural 'c') ~?= 2,
+    "g devuelve 0" ~: (letraANatural 'g') ~?= 6,
+    "x devuelve 0" ~: (letraANatural 'x') ~?= 23,
+    "y devuelve 0" ~: (letraANatural 'y') ~?= 24,
+    "z devuelve 0" ~: (letraANatural 'z') ~?= 25
     ]
 
 testsEjdesplazar = test [
-    "hola" ~: (hola) ~?= 2
+    "a desplazado 0" ~: (desplazar 'a' 0) ~?= '',
+    "h desplazado 0" ~: (desplazar 'h' 0) ~?= '',
+    "z desplazado 0" ~: (desplazar 'z' 0) ~?= '',
+
+    "a desplazado 1" ~: (desplazar 'a' 1) ~?= '',
+    "g desplazado 1" ~: (desplazar 'g' 1) ~?= '',
+    "z desplazado 1" ~: (desplazar 'z' 1) ~?= '',
+
+    "a desplazado -1" ~: (desplazar 'a' (-1)) ~?= 2,
+    "g desplazado -1" ~: (desplazar 'g' (-1)) ~?= 2,
+    "z desplazado -1" ~: (desplazar 'z' (-1)) ~?= 2,
+
+    "a desplazado 3" ~: (desplazar 'a' 3) ~?= '',
+    "g desplazado 3" ~: (desplazar 'g' 3) ~?= '',
+    "z desplazado 3" ~: (desplazar 'z' 3) ~?= '',
+
+    "a desplazado -3" ~: (desplazar 'a' (-3)) ~?= 2,
+    "g desplazado -3" ~: (desplazar 'g' (-3)) ~?= 2,
+    "z desplazado -3" ~: (desplazar 'z' (-3)) ~?= 2,
+
+    "1 desplazado 1" ~: (desplazar '1' 1) ~?= 2,
+    "3 desplazado 1" ~: (desplazar '2' 1) ~?= 2,
+    "? desplazado 1" ~: (desplazar '?' 1) ~?= 2,
+
+    "A desplazado 0" ~: (desplazar 'A' 0) ~?= 'C',
+    "B desplazado 0" ~: (desplazar 'B' 0) ~?= '',
+    "C desplazado 0" ~: (desplazar 'C' 0) ~?= 'A'
     ]
 
 testsEjcifrar = test [
