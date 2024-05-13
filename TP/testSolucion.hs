@@ -5,66 +5,83 @@ import Solucion
 import Data.List
 -- No está permitido agregar nuevos imports.
 
-runCatedraTests = runTestTT allTests
+hola :: Int
+hola = 2
+
+probarEjesMinuscula = runTestTT testsEjesMinuscula
+probarEjletraANatural = runTestTT testsEjletraANatural
+probarEjdesplazar = runTestTT testsEjdesplazar
+probarEjcifrar = runTestTT testsEjcifrar
+probarEjdescifrar = runTestTT testsEjdescifrar
+probarEjcifrarLista = runTestTT testsEjcifrarLista
+probarEjfrecuencia = runTestTT testsEjfrecuencia
+probarEjcifradoMasFrecuente = runTestTT testsEjcifradoMasFrecuente
+probarEjesDescifrado = runTestTT testsEjesDescifrado
+probarEjtodosLosDescifrados = runTestTT testsEjtodosLosDescifrados
+probarEjexpandirClave = runTestTT testsEjexpandirClave
+probarEjcifrarVigenere = runTestTT testsEjcifrarVigenere
+probarEjdescifrarVigenere = runTestTT testsEjdescifrarVigenere
+probarEjpeorCifrado = runTestTT testsEjpeorCifrado
+probarEjcombinacionesVigenere = runTestTT testsEjcombinacionesVigenere
 
 testsEjesMinuscula = test [
-    
+    "hola" ~: (hola) ~?= 2
     ]
 
 testsEjletraANatural = test [
-    
+    "hola" ~: (hola) ~?= 2
     ]
 
 testsEjdesplazar = test [
-
+    "hola" ~: (hola) ~?= 2
     ]
 
 testsEjcifrar = test [
-
+    "hola" ~: (hola) ~?= 2
     ]
 
 testsEjdescifrar = test [
-
+    "hola" ~: (hola) ~?= 2
     ]
 
 testsEjcifrarLista = test [
-
+    "hola" ~: (hola) ~?= 2
     ]
 
 testsEjfrecuencia = test [
-
+    "hola" ~: (hola) ~?= 2
     ]
 
 testsEjcifradoMasFrecuente = test [
-
+    "hola" ~: (hola) ~?= 2
     ]
 
 testsEjesDescifrado = test [
-
+    "hola" ~: (hola) ~?= 2
     ]
 
 testsEjtodosLosDescifrados = test [
-
+    "hola" ~: (hola) ~?= 2
     ]
 
 testsEjexpandirClave = test [
-
+    "hola" ~: (hola) ~?= 2
     ]
 
 testsEjcifrarVigenere = test [
-
+    "hola" ~: (hola) ~?= 2
     ]
 
 testsEjdescifrarVigenere = test [
-
+    "hola" ~: (hola) ~?= 2
     ]
 
 testsEjpeorCifrado = test [
-
+    "hola" ~: (hola) ~?= 2
     ]
 
 testsEjcombinacionesVigenere = test [
-
+    "hola" ~: (hola) ~?= 2
     ]
 
 
