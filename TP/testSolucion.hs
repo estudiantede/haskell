@@ -48,43 +48,61 @@ testsEjletraANatural = test [
     ]
 
 testsEjdesplazar = test [
-    "a desplazado 0" ~: (desplazar 'a' 0) ~?= '',
-    "h desplazado 0" ~: (desplazar 'h' 0) ~?= '',
-    "z desplazado 0" ~: (desplazar 'z' 0) ~?= '',
+    "a desplazado 0" ~: (desplazar 'a' 0) ~?= 'a',
+    "h desplazado 0" ~: (desplazar 'h' 0) ~?= 'h',
+    "z desplazado 0" ~: (desplazar 'z' 0) ~?= 'z',
 
-    "a desplazado 1" ~: (desplazar 'a' 1) ~?= '',
-    "g desplazado 1" ~: (desplazar 'g' 1) ~?= '',
-    "z desplazado 1" ~: (desplazar 'z' 1) ~?= '',
+    "a desplazado 1" ~: (desplazar 'a' 1) ~?= 'b',
+    "g desplazado 1" ~: (desplazar 'g' 1) ~?= 'h',
+    "z desplazado 1" ~: (desplazar 'z' 1) ~?= 'a',
 
-    "a desplazado -1" ~: (desplazar 'a' (-1)) ~?= 2,
-    "g desplazado -1" ~: (desplazar 'g' (-1)) ~?= 2,
-    "z desplazado -1" ~: (desplazar 'z' (-1)) ~?= 2,
+    "a desplazado -1" ~: (desplazar 'a' (-1)) ~?= 'z',
+    "g desplazado -1" ~: (desplazar 'g' (-1)) ~?= 'f',
+    "z desplazado -1" ~: (desplazar 'z' (-1)) ~?= 'y',
 
-    "a desplazado 3" ~: (desplazar 'a' 3) ~?= '',
-    "g desplazado 3" ~: (desplazar 'g' 3) ~?= '',
-    "z desplazado 3" ~: (desplazar 'z' 3) ~?= '',
+    "a desplazado 3" ~: (desplazar 'a' 3) ~?= 'd',
+    "g desplazado 3" ~: (desplazar 'g' 3) ~?= 'j',
+    "z desplazado 3" ~: (desplazar 'z' 3) ~?= 'c',
 
-    "a desplazado -3" ~: (desplazar 'a' (-3)) ~?= 2,
-    "g desplazado -3" ~: (desplazar 'g' (-3)) ~?= 2,
-    "z desplazado -3" ~: (desplazar 'z' (-3)) ~?= 2,
+    "a desplazado -3" ~: (desplazar 'a' (-3)) ~?= 'x',
+    "g desplazado -3" ~: (desplazar 'g' (-3)) ~?= 'g',
+    "z desplazado -3" ~: (desplazar 'z' (-3)) ~?= 'z',
 
-    "1 desplazado 1" ~: (desplazar '1' 1) ~?= 2,
-    "3 desplazado 1" ~: (desplazar '2' 1) ~?= 2,
-    "? desplazado 1" ~: (desplazar '?' 1) ~?= 2,
+    "1 desplazado 1" ~: (desplazar '1' 1) ~?= '1',
+    "3 desplazado 1" ~: (desplazar '2' 1) ~?= '3',
+    "? desplazado 1" ~: (desplazar '?' 1) ~?= '?',
 
-    "A desplazado 0" ~: (desplazar 'A' 0) ~?= 'C',
-    "B desplazado 0" ~: (desplazar 'B' 0) ~?= '',
-    "C desplazado 0" ~: (desplazar 'C' 0) ~?= 'A'
+    "A desplazado 0" ~: (desplazar 'A' 0) ~?= 'A',
+    "B desplazado 0" ~: (desplazar 'B' 0) ~?= 'B',
+    "C desplazado 0" ~: (desplazar 'C' 0) ~?= 'C'
     ]
 
 testsEjcifrar = test [
-    "hola" ~: (hola) ~?= 2
+    "Cifrar la lista vacia 0 veces" ~: (cifrar "" 0) ~?= "",
+    "Cifrar la lista con 1 elemento 0 veces" ~: (cifrar "a" 0) ~?= "a",
+    "Cifrar la lista con 1 elemento 1 vez" ~: (cifrar "a" 1) ~?= "b",
+    "Cifrar la lista con 1 elemento -1 veces" ~: (cifrar "a" (-1)) ~?= "z",
+    "Cifrar la lista con 5 elementos 0 veces" ~: (cifrar "abcde" 0) ~?= "abcde",
+    "Cifrar la lista con 5 elementos 1 vez" ~: (cifrar "abcde" 1) ~?= "bcdef",
+    "Cifrar la lista con 5 elementos 2 veces" ~: (cifrar "abcde" (-1)) ~?= "zabcd",
+    "Cifrar la lista con 7 elementos 0 veces" ~: (cifrar "abcdefg" 0) ~?= "abcdefg",
+    "Cifrar la lista con 7 elementos 1 vez" ~: (cifrar "abcdefg" 1) ~?= "bcdefgh",
+    "Cifrar la lista con 7 elementos 2 veces" ~: (cifrar "abcdefg" 2) ~?= "cdefghi",
     ]
 
 testsEjdescifrar = test [
-    "hola" ~: (hola) ~?= 2
+    "Descifrar la lista vacia 0 veces" ~: (cifrar "" 0) ~?= "",
+    "Descifrar la lista con 1 elemento 0 veces" ~: (cifrar "a" 0) ~?= "0",
+    "Descifrar la lista con 1 elemento 1 vez" ~: (cifrar "a" 1) ~?= "b",
+    "Descifrar la lista con 1 elemento -1 veces" ~: (cifrar "a" (-1)) ~?= "z",
+    "Descifrar la lista con 5 elementos 0 veces" ~: (cifrar "abcde" 0) ~?= "abcde",
+    "Descifrar la lista con 5 elementos 1 vez" ~: (cifrar "abcde" 1) ~?= "bcdef",
+    "Descifrar la lista con 5 elementos 2 veces" ~: (cifrar "abcde" (-1)) ~?= "zabcd",
+    "Descifrar la lista con 7 elementos 0 veces" ~: (cifrar "abcdefg" 0) ~?= "abcdefg",
+    "Descifrar la lista con 7 elementos 1 vez" ~: (cifrar "abcdefg" 1) ~?= "bcdefgh",
+    "Descifrar la lista con 7 elementos 2 veces" ~: (cifrar "abcdefg" 2) ~?= "cdefghi",
     ]
-
+    
 testsEjcifrarLista = test [
     "hola" ~: (hola) ~?= 2
     ]
