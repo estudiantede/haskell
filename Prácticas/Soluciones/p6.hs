@@ -1,4 +1,3 @@
-
 import math
 
 def imprimir_hola_mundo ():
@@ -48,8 +47,12 @@ def es_bisiesto(year):
     return ((year % 400) == 0) or (((year % 4) == 0) and (not ((year % 100) == 0)))
 
 def peso_pino(altura):
-    return altura
-
+    peso = 0
+    if (altura > 3):
+        peso = 900 + ((altura - 3) * 100 * 2)
+    else:
+        peso = altura * 3 * 100
+    return peso
 
 def esMayorQue3(altura):
     return altura > 3
@@ -75,7 +78,6 @@ def devolver_el_doble_si_es_multiplo3_el_triple_si_es_multiplo9(numero):
         return ((numero % 9 == 0) * numero * 3) or numero * 2
     else:
         return numero    
-    
 
 
 def lindo_nombre(nombre):
