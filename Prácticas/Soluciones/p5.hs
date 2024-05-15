@@ -178,37 +178,85 @@ ordenar xs = ordenar (quitar (maximo xs) xs) ++ [maximo xs]
 
 -- a)
        --a)
-       {-
+
 sacarBlancosRepetidos :: [Char] -> [Char]
 sacarBlancosRepetidos [] = []
 sacarBlancosRepetidos [a] = [a]
-sacarBlancosRepetidos [a, b] | a == b && a == ' ' = [a]
-                             | otherwise = [a, b]
-sacarBlancosRepetidos (n:m:xs) | n == ' ' && n == m = sacarBlancosRepetidos (xs)
-                               | otherwise = n : sacarBlancosRepetidos (m : xs)
+sacarBlancosRepetidos [a, b]   | a == b && a == ' ' = [a]
+                                  | otherwise = [a, b]
+sacarBlancosRepetidos(n:m:xs) | n /= ' ' && m /= ' ' = n : sacarBlancosRepetidos (m : xs)
+                                 | n == ' ' && m /= ' ' = n : sacarBlancosRepetidos (m : xs)
+                                 | n /= ' ' && m == ' ' = n : sacarBlancosRepetidos (m : xs)
+                                 | otherwise = sacarBlancosRepetidos (m:xs)
 
-       --b)
-
-contarPalabras :: [Char] -> Int
-contarPalabras x = contarPalabrasAux (sacarBlancosRepetidos x)
-
-contarPalabrasAux :: [Char] -> Int
-contarPalabrasAux [] = 0
-contarPalabrasAux [a] | a /= ' ' = 1
-                   | otherwise = 0
-contarPalabrasAux (x:xs) | x == ' ' = 1 + contarPalabras xs
-                      | otherwise = contarPalabras xs
        
-       --c)
+       --b)
+contarPalabras :: [Char] -> Int
+contarPalabras [] = 0
+contarPalabras xs = contarEspacios (limpiarPalabra xs) + 1
 
+limpiarPalabra :: [Char] -> [Char]
+limpiarPalabra xs = sacarBlancoFinal (sacarBlancoPrincipio (sacarBlancosRepetidos xs))
+
+sacarBlancoPrincipio :: [Char] -> [Char]
+sacarBlancoPrincipio [] = []
+sacarBlancoPrincipio (x:xs) | x == ' ' = xs
+                            | otherwise = x : xs
+
+sacarBlancoFinal :: [Char] -> [Char]
+sacarBlancoFinal [] = []
+sacarBlancoFinal [a] | a == ' ' = []
+                     | otherwise = [a]
+sacarBlancoFinal (x:xs) = x : sacarBlancoFinal xs
+
+contarEspacios :: [Char] -> Int
+contarEspacios [] = 0
+contarEspacios (x:xs) | x == ' ' = 1 + contarEspacios xs
+                      | otherwise = contarEspacios xs
+
+       --c)
 palabras :: [Char] -> [[Char]]
 palabras [] = [[]]
---palabras (x:xs) | x == ' ' = 
+palabras xs = palabrasAux (' ' : limpiarPalabra xs)
 
+palabrasAux :: [Char] -> [[Char]]
+palabrasAux [] = []
+palabrasAux (x:xs) | x == ' ' = (sacarPalabra xs) : palabrasAux xs
+                   | otherwise = palabrasAux xs
 
--}
+sacarPalabra :: [Char] -> [Char]
+sacarPalabra [] = []
+sacarPalabra (' ':xs) = []
+sacarPalabra (x:xs) = x : sacarPalabra xs
+
        --d)
 
+palabraMasLarga :: [Char] -> [Char]
+palabraMasLarga [] = []
+palabraMasLarga xs = palabraEnPosicionX (buscarMasLargo (cantidadLetraPorPalabra (palabras xs))) (palabras xs)
+
+cantidadLetraPorPalabra :: [[Char]] -> [Int]
+cantidadLetraPorPalabra [] = []
+cantidadLetraPorPalabra (x:xs) = (cantidadLetras x) : (cantidadLetraPorPalabra xs)
+
+cantidadLetras :: [Char] -> Int
+cantidadLetras [] = 0
+cantidadLetras (x:xs) = 1 + cantidadLetras xs
+
+buscarMasLargo :: [Int] -> Int
+buscarMasLargo [] = 0
+buscarMasLargo [x] = x
+buscarMasLargo (x:xs) = buscarMasLargoAux x 1 1 (x:xs)
+
+buscarMasLargoAux :: Int -> Int -> Int ->  [Int] -> Int
+buscarMasLargoAux num pos posActual [] = pos
+buscarMasLargoAux num pos posActual (x:xs) | num < x = buscarMasLargoAux x posActual (posActual + 1) xs
+                                           | otherwise = buscarMasLargoAux num pos (posActual + 1) xs
+
+palabraEnPosicionX :: Int -> [[Char]] -> [Char]
+palabraEnPosicionX 1 [y] = y
+palabraEnPosicionX 1 (y:ys) = y
+palabraEnPosicionX x (y:ys) = palabraEnPosicionX (x-1) ys
 
 
        --e)
