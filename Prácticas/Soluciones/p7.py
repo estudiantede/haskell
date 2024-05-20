@@ -130,6 +130,11 @@ def fortaleza(contra: str) -> str:
 
   # 1
 
+def pertenece_a_cada_uno(s:list[list[int]], e:int, res: list[bool]):
+    res.clear()
+    for lista in s:
+        res.append(perteneceWhile(lista, e))
+
   # 2
 
   # 3
