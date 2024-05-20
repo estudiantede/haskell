@@ -44,6 +44,51 @@ def suma_totales(s: list[int]) -> int:
 
   # 7
 
+#Devuelve true <--> la primer componente es minuscula 
+def esMinuscula(c: str) -> bool:
+    return (c[0] >= 'a' and c[0] <= 'z')
+
+def esMayuscula(c: str) -> bool:
+    return (c[0] >= 'A' and c[0] <= 'Z')
+
+def esNumero(c: str) -> bool:
+    return (c[0] >= '0' and c[0] <= '9')
+
+def tieneMinuscula(c: str) -> bool:
+    es_minuscula: bool = False
+    i: int = 0
+    while (es_minuscula == False and i < len(c)):
+        if (esMinuscula(c[i])):
+            es_minuscula = True
+        i += 1
+    return es_minuscula
+
+def tieneMayuscula(c: str) -> bool:
+    es_mayuscula: bool = False
+    i: int = 0
+    while (es_mayuscula == False and i < len(c)):
+        if (esMayuscula(c[i])):
+            es_mayuscula = True
+        i += 1
+    return es_mayuscula
+
+def tieneNumero(c: str) -> bool:
+    es_numero: bool = False
+    i: int = 0
+    while (es_numero == False and i < len(c)):
+        if (esNumero(c[i])):
+            es_numero = True
+        i += 1
+    return es_numero
+
+def fortaleza(contra: str) -> str:
+    if (len(contra) < 5):
+        return "ROJA"
+    elif (tieneMayuscula(contra) and tieneMinuscula(contra) and tieneNumero(contra) and len(contra) > 8):
+        return "VERDE"
+    else:
+        return "AMARILLA"
+
   # 8
 
   # 9
