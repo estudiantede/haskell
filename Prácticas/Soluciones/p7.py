@@ -30,6 +30,12 @@ def perteneceFor(s: list[int], e: int) -> bool:
 
   # 3
 
+def suma_totales(s: list[int]) -> int:
+    a: int = 0
+    for i in s:
+        a += i
+    return a
+
   # 4
 
   # 5
