@@ -3,6 +3,28 @@
 # Ej 1
 
   # 1
+def perteneceWhile(s: list[int], e: int) -> bool:
+    estaEnLista: bool = False
+    i: int = 0
+    while (i < len(s) and estaEnLista == False):
+        estaEnLista = s[i] == e
+        i += 1
+    return estaEnLista        
+
+def perteneceForEach(s: list[int], e: int) -> bool:
+    for i in s:
+        if (i == e):
+            return True
+    return False
+        
+def perteneceFor(s: list[int], e: int) -> bool:
+    estaEnLista: bool = False
+    for i in range (len(s)):
+        if s[i] == e:
+            estaEnLista = True
+    return estaEnLista
+
+#Dicen que haya muchos returns es mala pràctica de programacion. A tener en cuenta, pero si es por manejo de memoria, hasta serìa mejor por una iteracion menos, pero es medio al pedo
 
   # 2
 
