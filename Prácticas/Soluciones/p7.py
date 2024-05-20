@@ -38,6 +38,13 @@ def suma_totales(s: list[int]) -> int:
 
   # 4
 
+def ordenados(lista: list[int]) -> bool:
+    esta_ordenado: bool = True
+    for i in range(len(lista) - 1):
+        if (lista[i] > lista[i + 1]):
+            esta_ordenado = False
+    return esta_ordenado
+
   # 5
 
   # 6
