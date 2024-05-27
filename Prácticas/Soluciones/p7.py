@@ -28,6 +28,13 @@ def perteneceFor(s: list[int], e: int) -> bool:
 
   # 2
 
+def divide_a_todos(s: list[int], e: int) -> bool:
+    divide_e_a_todos: bool = True
+    for i in s:
+        if i % e != 0:
+            divide_e_a_todos = False
+    return divide_a_todos
+
   # 3
 
 def suma_totales(s: list[int]) -> int:
@@ -47,7 +54,25 @@ def ordenados(lista: list[int]) -> bool:
 
   # 5
 
+def alguna_tiene_longitud_mayor_a_7(s: list[str]):
+    hay_alguna_longitud_mayor_a_7 = False
+    for i in s:
+        if len(i) > 7:
+            hay_alguna_longitud_mayor_a_7: True
+    return hay_alguna_longitud_mayor_a_7
+
   # 6
+
+def es_capicua(s: str) -> bool:
+    print(inverso (s))
+    print(s)
+    return str(inverso(s)) == s
+
+def inverso(s: str) -> str:
+    res = ""
+    for i in range (len(s), 0, -1):
+        res += s[i - 1]
+    return res
 
   # 7
 
