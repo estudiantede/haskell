@@ -122,6 +122,15 @@ def fortaleza(contra: str) -> str:
 
   # 1
 
+def nombreso_ingresados() -> list[str]:
+    rta = input("Ingrese un nombre. Lista para agregar")
+    res = []
+    while (rta != "listo"):
+        res.append(rta)
+        rta = input("Ingrese un nombre. Lista para agregar")
+    return res
+
+
   # 2
 
   # 3
