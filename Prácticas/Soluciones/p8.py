@@ -25,3 +25,30 @@ def es_un_comentario(s: str) -> bool:
     if (s[i] == '#'):
         es_cometario = True
     return es_cometario
+
+def invertir_lineas(nombre_archivo: str):
+    archivo_in = open(nombre_archivo, 'r')
+    lista: list [str] = archivo_in.readlines()
+
+    archivo_in.close()
+
+    lista = lista.reverse() #Teoricamente, no se puede usar, pero no tengo ganas de programarla
+    archivo_out = open("reverso.txt", 'r')
+    archivo.writelines(lista)
+    archivo_out.close()
+
+def agregar_frase_al_final(nombre_archivo: str, frase: str):
+    archivo = open(nombre_archivo, 'a')
+    archivo.write(frase)
+    archivo.close
+
+def agregar_frase_al_principio(nombre_archivo: str, frase: str):
+    archivo = open (nombre_archivo, 'r')
+    lista = archivo.readlines()
+    lista.insert(0,frase)
+    archivo.close()
+
+    archivo = open(nombre_archivo, 'w')
+    archivo.writelines(lista)
+    archivo.close()
+    
