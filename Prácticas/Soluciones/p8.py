@@ -1,3 +1,8 @@
+from queue import LifoQueue as Pila
+from queue import Queue as Cola
+import random
+
+
 #Archivos
 
 #1
