@@ -296,10 +296,3 @@ def calcular_valor_inventario(inventario: dict[(str, dict[(str, str|int)])]) -> 
         precio_producto: float = inventario[i]["precio"]
         res += cantidad_producto * precio_producto
     return res
-
-inventario = {}
-agregar_producto(inventario, "Camisa", 20.0, 50)
-agregar_producto(inventario, "Pantalon", 30.0, 30)
-actualizar_stock(inventario, "Camisa", 10)
-valor_total = calcular_valor_inventario(inventario)
-print("Valor total del inventario:", valor_total) 
