@@ -3,7 +3,7 @@ from queue import Queue as Cola
 import random
 
 
-#Archivos
+#Archivoss
 
 #1
     #1
@@ -12,9 +12,73 @@ def contar_lineas(nombre_archivo: str) -> int:
     res = len(archivo.readlines())
     archivo.close()
     return res
+
     #2
 
+def existe_palabra(palabra: str, nombre_archivo: str) -> bool:
+    archivo = open(nombre_archivo, "r")
+    res: bool = False
+    linea_cache: str = archivo.readline()
+
+    while (linea_cache != ''):
+        lista_palabras: list[str] = separarPalabras(linea_cache)
+
+        if pertenece_a_lista(palabra, lista_palabras):
+            res = True
+        linea_cache = archivo.readline()
+    archivo.close()
+    return res
+
+def pertenece_a_lista(palabra_a_buscar: str, lista_palabras: list[str]) -> bool:
+    res: bool = False
+    for i in lista_palabras:
+        if (i == palabra_a_buscar):
+            res = True
+    return res
+
+
+def separar_palabras(linea: str) -> list[str]:
+    palabras = ''
+    res: list[str] = []
+    for i in linea:
+        if es_espacio(i) and palabras != '':
+             res.append(palabras)
+        if (es_espacio(i)):
+            palabras = ''
+        else:
+            palabras += i
+
+    if (palabras != ''):
+        res.append(palabras)
+    return res
+    
+def es_espacio(caracter: str) -> bool:
+    return caracter == ' ' or caracter == '\n' or caracter == '\t'
+
     #3
+
+def cantidad_apariciones(palabra_a_contar: str, nombre_de_archivo: str) -> int: 
+    archivo = open(nombre_de_archivo, "r")
+    res: int = 0
+
+    linea_cache: str = archivo.readline()
+
+    while (linea_cache != ''):
+        lista_palabras: list[str] = separarPalabras(linea_cache)
+        res += contar_apariciones(lista_palabras, palabra_a_contar)
+        linea_cache = archivo.readline()
+    
+    archivo.close()
+    return res
+
+def contar_apariciones(lista_palabras:list[str], palabra_a_buscar: str) -> int:
+    res: int = 0
+    for i in lista_palabras:
+        if i == palabra_a_buscar:
+            res += 1
+    
+    return res
+
 #2
 def clonar_sin_comentarios(nombre_archivo: str):
     archivo = open(nombre_archivo, 'r')
@@ -49,7 +113,7 @@ def invertir_lineas(nombre_archivo: str):
 
     lista = lista.reverse() #Teoricamente, no se puede usar, pero no tengo ganas de programarla
     archivo_out = open("reverso.txt", 'r')
-    archivo.writelines(lista)
+    archivo_out.writelines(lista)
     archivo_out.close()
 
 #4
@@ -203,3 +267,39 @@ def separarPalabras(linea: str, diccionario: dict[int, int]) -> None:
         if i == ' ':
             palabra = ''
 
+#20
+
+#21
+
+#22
+
+#23
+
+def agregar_producto(inventario: dict[(str, dict[(str, str|int|float)])],nombre: str, precio: int, cantidad: int) -> None:
+    res_a_agregar: dict[(str, str|int)] = {}
+    res_a_agregar["nombre"] = nombre
+    res_a_agregar["precio"] = precio
+    res_a_agregar["cantidad"] = cantidad
+
+    inventario[nombre] = res_a_agregar
+
+def actualizar_stock(inventario: dict[(str, dict[(str, str|int)])], nombre: str, cantidad: int)  -> None:
+    inventario[nombre]["cantidad"] = cantidad
+
+def actualizar_precios(inventario: dict[(str, dict[(str, str|int)])], nombre: str, precio: float) -> None:
+    inventario[nombre]["precio"] = precio
+
+def calcular_valor_inventario(inventario: dict[(str, dict[(str, str|int)])]) ->  float:
+    res: float = 0
+    for i in inventario:
+        cantidad_producto: int = inventario[i]["cantidad"]
+        precio_producto: float = inventario[i]["precio"]
+        res += cantidad_producto * precio_producto
+    return res
+
+inventario = {}
+agregar_producto(inventario, "Camisa", 20.0, 50)
+agregar_producto(inventario, "Pantalon", 30.0, 30)
+actualizar_stock(inventario, "Camisa", 10)
+valor_total = calcular_valor_inventario(inventario)
+print("Valor total del inventario:", valor_total) 
